@@ -1,4 +1,4 @@
-#!env/bin/python
+#!/usr/bin/env python3
 
 import caldav
 import requests
@@ -28,7 +28,7 @@ def get_description(url):
 
     soup = BeautifulSoup(r.content, 'html5lib')
     div = soup.find('div', attrs = {'class':'contenu'})
-    desc = div.get_text(" ", strip=True)
+    desc = div.get_text("\n", strip=True)
 
     return desc
 
