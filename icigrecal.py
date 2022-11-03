@@ -66,7 +66,9 @@ def get_events():
                     s = stime.split('h')
                     hour, minute = int(s[0]), int(s[1])
 
-                dt = dateparser.parse(' '.join(sdate.split(' ')[1:])).date()
+                dt = dateparser.parse(' '.join(sdate.split(' ')[1:]),
+                                      languages=['fr'],
+                                      date_formats=['%d %B %Y']).date()
                 day, month, year = dt.day, dt.month, dt.year
                 curl = f'https://www.ici-grenoble.org{p_evt.a["href"].strip()}'
                 desc = get_description(curl)
